@@ -1,3 +1,5 @@
+
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
@@ -8,12 +10,26 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+
+// const db = mysql.createConnection({
+//   host: '127.0.0.1',
+//   user: 'root',
+//   password: 'asjad123',
+//   database: 'expensedb'
+// });
+
+
+
+
 const db = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'root',
-  password: 'asjad123',
-  database: 'expensedb'
+  host: process.env.MYSQLHOST,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQL_DATABASE,
+  port: process.env.MYSQLPORT
 });
+
+
 
 db.connect((err) => {
   if (err) {
