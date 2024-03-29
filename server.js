@@ -5,23 +5,14 @@ const cors = require('cors');
 
 const app = express();
 
-// Define CORS options
-const corsOptions = {
-  origin: 'http://asjadafzaal-001-site1.gtempurl.com', // Allow requests from this origin
-  methods: ['GET', 'POST'], // Allow only specified HTTP methods
-  allowedHeaders: ['Content-Type'], // Allow only specified headers
-};
-
-// Enable CORS for all routes
-app.use(cors(corsOptions));
-
+app.use(cors());
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({
-  host: 'MYSQL5048.site4now.net',
-  user: 'aa6d0d_asjadaf',
+  host: '127.0.0.1',
+  user: 'root',
   password: 'asjad123',
-  database: 'db_aa6d0d_asjadaf'
+  database: 'expensedb'
 });
 
 db.connect((err) => {
