@@ -11,23 +11,13 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-// const db = mysql.createConnection({
-//   host: '127.0.0.1',
-//   user: 'root',
-//   password: 'asjad123',
-//   database: 'expensedb'
-// });
-
-
-
-
 const db = mysql.createConnection({
-  host: process.env.MYSQLHOST,
-  user: process.env.MYSQLUSER,
-  password: process.env.MYSQLPASSWORD,
-  database: process.env.MYSQL_DATABASE,
-  port: process.env.MYSQLPORT
+  host: '127.0.0.1',
+  user: 'root',
+  password: 'asjad123',
+  database: 'expensedb'
 });
+
 
 
 
